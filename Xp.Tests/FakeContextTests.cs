@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using Xp.Domain.Entities;
@@ -19,16 +21,16 @@ namespace Xp.Tests
 
         public void TestList()
         {
-          List<Cliente> clientes = _context.GetClientes();
+            List<Cliente> clientes = _context.GetClientes();
 
-            foreach(Cliente cliente in clientes)
+            foreach (Cliente cliente in clientes)
             {
                 Console.WriteLine($"CodCliente: {cliente.CodCliente}\n" +
                     $"Nome do cliente: {cliente.Nome}\n" +
                     $"Idade do cliente: {cliente.Idade}\n" +
                     $"CPF do cliente: {cliente.Cpf}\n" +
                     $"Código de ativo: {cliente.CodAtivo}\n" +
-                    $"Quantidade de ativo: {cliente.qtAtivo}\n"); 
+                    $"Quantidade de ativo: {cliente.qtAtivo}\n");
             }
         }
 
@@ -45,6 +47,17 @@ namespace Xp.Tests
             };
 
             _context.CreateCliente(cliente);
+        }
+
+        public async Task GetRandomPeopleAsync()
+        {
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync("https://randomuser.me/api");
+
+            if(response.IsSuccessStatusCode)
+            {
+                string result = response.Content.ReadAsStringAsync().Result;
+            }
         }
     }
 }
