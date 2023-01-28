@@ -10,7 +10,16 @@ namespace Xp.Tests
 {
     public class DomainTests
     {
-        public void TestEntity()
+
+        public void Execute()
+        {
+            TestEntity();
+            TestDto();
+            TestConvertionEntityToDto();
+            TestConvertionDtoToEntity();
+        }
+
+        private void TestEntity()
         {
             Cliente cliente = new Cliente
             {
@@ -24,7 +33,7 @@ namespace Xp.Tests
             Console.Write(message);
         }
 
-        public void TestDto()
+        private void TestDto()
         {
             ClienteDto clienteDTO = new ClienteDto
             {
@@ -37,7 +46,7 @@ namespace Xp.Tests
             Console.Write(message);
         }
 
-        public void TestConvertionEntityToDto()
+        private void TestConvertionEntityToDto()
         {
             Cliente cliente = new Cliente
             {
@@ -53,7 +62,7 @@ namespace Xp.Tests
             Console.Write(message);
         }
 
-        public void TestConvertionDtoToEntity()
+        private void TestConvertionDtoToEntity()
         {
             ClienteDto clienteDTO = new ClienteDto
             {

@@ -1,35 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Xp.Tests
+﻿namespace Xp.Tests
 {
     public class AppTestMain
     {
-        public AppTestMain() { }
+        private readonly RepositoryTest _repositoryTest;
+
+        public AppTestMain(RepositoryTest repositoryTest)
+        {
+            _repositoryTest = repositoryTest;
+        }
 
         public void Execute()
         {
             ValidateStructureLayer_Context();
             ValidateDomainLayer();
+            ValidateRepositoryLayer();
         }
         private void ValidateStructureLayer_Context()
         {
             FakeContextTests fakeContextTests = new FakeContextTests();
-            fakeContextTests.TestList();
-            fakeContextTests.TestInclusion();
-            fakeContextTests.GetRandomPeopleAsync().Wait();
+            fakeContextTests.Execute();
         }
 
         private void ValidateDomainLayer()
         {
             DomainTests tests = new DomainTests();
-            tests.TestEntity();
-            tests.TestDto();
-            tests.TestConvertionEntityToDto();
-            tests.TestConvertionDtoToEntity();
+            tests.Execute();
+        }
+
+        private void ValidateRepositoryLayer()
+        {
+            _repositoryTest.Execute();
         }
     }
 }

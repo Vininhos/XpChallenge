@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Xp.Infra.Repositories;
 
 namespace Xp.Tests.Extensions
 {
@@ -17,6 +18,12 @@ namespace Xp.Tests.Extensions
         private static void RegisterDependencies(IServiceCollection services)
         {
             services.AddScoped<AppTestMain>();
+
+            //Repository
+            services.AddScoped<IClienteRepository, ClienteRepository>();
+
+            //Tests
+            services.AddScoped<DomainTests>();
         }
 
         private static IConfiguration GetConfiguration()
@@ -26,7 +33,7 @@ namespace Xp.Tests.Extensions
                 .AddJsonFile($"appsettings.json")
                 .AddEnvironmentVariables();
 
-            IConfiguration configuration = builder.Build();
+             IConfiguration configuration = builder.Build();
 
             return configuration;
         }

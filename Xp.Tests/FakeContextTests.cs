@@ -19,7 +19,13 @@ namespace Xp.Tests
             _context = new FakeContext();
         }
 
-        public void TestList()
+        public void Execute()
+        {
+            TestList();
+            TestInclusion();
+        }
+
+        private void TestList()
         {
             List<Cliente> clientes = _context.GetClientes();
 
@@ -34,7 +40,7 @@ namespace Xp.Tests
             }
         }
 
-        public void TestInclusion()
+        private void TestInclusion()
         {
             Cliente cliente = new Cliente
             {
@@ -49,7 +55,7 @@ namespace Xp.Tests
             _context.CreateCliente(cliente);
         }
 
-        public async Task GetRandomPeopleAsync()
+        private async Task GetRandomPeopleAsync()
         {
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync("https://randomuser.me/api");
