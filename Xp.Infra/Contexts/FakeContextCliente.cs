@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xp.Domain.Entities;
+﻿using Xp.Domain.Entities;
 
 namespace Xp.Infra.Contexts
 {
-    public class FakeContext : IContext
+    public class FakeContextCliente : IContextCliente
     {
         private List<Cliente> _clientes;
 
-        public FakeContext()
+        public FakeContextCliente()
         {
             LoadData();
         }
@@ -27,7 +22,7 @@ namespace Xp.Infra.Contexts
                 Idade = 23,
                 Cpf = "07036305983",
                 CodAtivo = 1,
-                qtAtivo = 105.40f
+                qtAtivo = 105
             };
 
             _clientes.Add(cliente);
@@ -39,7 +34,7 @@ namespace Xp.Infra.Contexts
                 Idade = 32,
                 Cpf = "9239837812",
                 CodAtivo = 2,
-                qtAtivo = 300.50f
+                qtAtivo = 300
             };
 
             _clientes.Add(cliente2);
@@ -51,7 +46,7 @@ namespace Xp.Infra.Contexts
                 Idade = 45,
                 Cpf = "723786548",
                 CodAtivo = 3,
-                qtAtivo = 4500.50f
+                qtAtivo = 4500
             };
 
             _clientes.Add(cliente3);
@@ -93,7 +88,6 @@ namespace Xp.Infra.Contexts
             };
 
             _clientes.Add(objSearch);
-
         }
     }
 }

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Xp.Domain.Entities;
+﻿using Xp.Domain.Entities;
 
 namespace Xp.Infra.Contexts
 {
-    public interface IContext
+    public interface IContextCliente
     {
         public List<Cliente> GetClientes(); 
 

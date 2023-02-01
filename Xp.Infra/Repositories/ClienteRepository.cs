@@ -12,12 +12,12 @@ namespace Xp.Infra.Repositories
 {
     public class ClienteRepository : IClienteRepository
     {
-        private readonly IContext _context;
+        private readonly IContextCliente _context;
 
         public ClienteRepository()
         {
             if (ConfigApp.SELECTED_DATABASE.Equals(DatabaseType.Fake))
-                _context = new FakeContext();
+                _context = new FakeContextCliente();
         }
 
         public void Save(Cliente cliente)

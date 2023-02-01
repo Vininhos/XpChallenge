@@ -9,7 +9,7 @@ namespace Xp.Domain.Entities
         public int Idade { get; set; }
         public string? Cpf { get; set; }
         public int CodAtivo { get; set; }
-        public float qtAtivo { get; set; }
+        public int qtAtivo { get; set; }
 
         public ClienteDto ConvertToDto()
         {
@@ -19,6 +19,19 @@ namespace Xp.Domain.Entities
                 CodAtivo = CodAtivo,
                 qtAtivo = qtAtivo
             };
+        }
+
+        public static List<ClienteDto> ConvertToDto(List<Cliente> clientes)
+        {
+            List<ClienteDto> clientesDto = new List<ClienteDto>();
+
+            foreach (Cliente cliente in clientes)
+            {
+                ClienteDto dto = cliente.ConvertToDto();
+                clientesDto.Add(dto);
+            }
+
+            return clientesDto;
         }
     }
 }

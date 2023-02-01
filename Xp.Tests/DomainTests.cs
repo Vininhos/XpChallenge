@@ -26,7 +26,7 @@ namespace Xp.Tests
                 CodCliente = 1,
                 Nome = "Vinícius",
                 Cpf = "07036305983",
-                qtAtivo = 105.40f
+                qtAtivo = 105
             };
 
             string message = $"CodCliente: {cliente.CodCliente}\nNome do cliente: {cliente.Nome}\nCPF do cliente: {cliente.Cpf}\nQuantidade de ativo: {cliente.qtAtivo}";
@@ -39,7 +39,7 @@ namespace Xp.Tests
             {
                 CodCliente = 1,
                 Nome = "Vinícius",
-                qtAtivo = 105.40f
+                qtAtivo = 105
             };
 
             string message = $"\nCodCliente: {clienteDTO.CodCliente}\nNome do cliente: {clienteDTO.Nome}\nQuantidade de ativo: {clienteDTO.qtAtivo}";
@@ -53,7 +53,7 @@ namespace Xp.Tests
                 CodCliente = 1,
                 Nome = "Vinícius",
                 Cpf = "07036305983",
-                qtAtivo = 105.40f
+                qtAtivo = 105
             };
 
             ClienteDto dto = cliente.ConvertToDto();
@@ -68,7 +68,7 @@ namespace Xp.Tests
             {
                 CodCliente = 1,
                 Nome = "Vinícius",
-                qtAtivo = 105.40f
+                qtAtivo = 105
             };
 
             Cliente cliente = clienteDTO.ConvertToEntity();

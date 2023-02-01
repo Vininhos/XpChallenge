@@ -1,22 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using Xp.Domain.Entities;
+﻿using Xp.Domain.Entities;
 using Xp.Infra.Contexts;
 
 namespace Xp.Tests
 {
     public class FakeContextTests
     {
-        private readonly IContext _context;
+        private readonly IContextCliente _contextCliente;
 
         public FakeContextTests()
         {
-            _context = new FakeContext();
+            _contextCliente = new FakeContextCliente();
         }
 
         public void Execute()
@@ -27,7 +20,7 @@ namespace Xp.Tests
 
         private void TestList()
         {
-            List<Cliente> clientes = _context.GetClientes();
+            List<Cliente> clientes = _contextCliente.GetClientes();
 
             foreach (Cliente cliente in clientes)
             {
@@ -49,10 +42,10 @@ namespace Xp.Tests
                 Idade = 27,
                 Cpf = "98435348921",
                 CodAtivo = 4,
-                qtAtivo = 12105.70f
+                qtAtivo = 12105
             };
 
-            _context.CreateCliente(cliente);
+            _contextCliente.CreateCliente(cliente);
         }
 
         private async Task GetRandomPeopleAsync()

@@ -13,8 +13,10 @@ builder.Services.AddSwaggerGen();
 void RegisterDependencies(IServiceCollection services)
 {
     services.AddScoped<IClienteRepository, ClienteRepository>();
+    services.AddScoped<ICorretoraRepository, CorretoraRepository>();
 
     services.AddScoped<ClienteService>();
+    services.AddScoped<CorretoraService>();
 }
 
 RegisterDependencies(builder.Services);
