@@ -10,4 +10,8 @@
     <Folder Include="Service\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Xp.Infra\Xp.Infra.csproj" />
+  </ItemGroup>
+
 </Project>

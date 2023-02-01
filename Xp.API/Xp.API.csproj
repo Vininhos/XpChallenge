@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Xp.Infra\Xp.Infra.csproj" />
+    <ProjectReference Include="..\Xp.Services\Xp.Services.csproj" />
   </ItemGroup>
 
 </Project>

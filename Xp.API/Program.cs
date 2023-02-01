@@ -1,4 +1,5 @@
 using Xp.Infra.Repositories;
+using Xp.Services.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,8 @@ builder.Services.AddSwaggerGen();
 void RegisterDependencies(IServiceCollection services)
 {
     services.AddScoped<IClienteRepository, ClienteRepository>();
+
+    services.AddScoped<ClienteService>();
 }
 
 RegisterDependencies(builder.Services);
