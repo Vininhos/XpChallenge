@@ -1,3 +1,4 @@
+using Xp.Infra.Contexts;
 using Xp.Infra.Repositories;
 using Xp.Services.Service;
 
@@ -12,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 void RegisterDependencies(IServiceCollection services)
 {
+    services.AddScoped<IContextCliente, FakeContextCliente>();
+    services.AddScoped<IContextCorretora, FakeContextCorretora>();
     services.AddScoped<IClienteRepository, ClienteRepository>();
     services.AddScoped<ICorretoraRepository, CorretoraRepository>();
 
