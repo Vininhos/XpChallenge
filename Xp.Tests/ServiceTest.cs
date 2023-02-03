@@ -5,16 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Xp.Domain.Entities;
 using Xp.Infra.Repositories;
+using Xp.Services.Service;
 
 namespace Xp.Tests
 {
-    public class RepositoryTest : IRepositoryTest
+    public class ServiceTest
     {
-        private readonly IClienteRepository _clienteRepository;
+        private readonly ClienteService _clienteService;
 
-        public RepositoryTest(IClienteRepository clienteRepository)
+        public ServiceTest(ClienteService clienteService)
         {
-            _clienteRepository = clienteRepository;
+            _clienteService = clienteService;
         }
 
         public void Execute()
@@ -35,7 +36,7 @@ namespace Xp.Tests
 
         public void ValidateClienteListing()
         {
-            List<Cliente> clientes = _clienteRepository.GetAll();
+            List<Cliente> clientes = _clienteService.GetAll();
 
             foreach (Cliente cliente in clientes)
                 Console.WriteLine($"Id: {cliente.CodCliente}, Nome: {cliente.Nome}");
@@ -44,7 +45,7 @@ namespace Xp.Tests
         public void ValidateSearchByIdCliente()
         {
             int id = 1;
-            Cliente cliente = _clienteRepository.SearchById(id);
+            Cliente cliente = _clienteService.SearchById(id);
             Console.WriteLine($"Id: {cliente.CodCliente}, Nome: {cliente.Nome}");
         }
 
@@ -62,29 +63,29 @@ namespace Xp.Tests
                 qtAtivo = 32944
             };
 
-            _clienteRepository.Save(cliente);
+            _clienteService.Save(cliente);
 
-            Cliente searchObject = _clienteRepository.SearchById(id);
+            Cliente searchObject = _clienteService.SearchById(id);
             Console.WriteLine($"Id: {searchObject.CodCliente}, Nome: {searchObject.Nome}");
         }
 
         public void ValidateUpdateCliente()
         {
             int id = 1;
-            Cliente cliente = _clienteRepository.SearchById(id);
+            Cliente cliente = _clienteService.SearchById(id);
             cliente.Nome = "Diogo F.";
-            _clienteRepository.Update(cliente);
+            _clienteService.Update(cliente);
 
-            Cliente searchObject = _clienteRepository.SearchById(id);
+            Cliente searchObject = _clienteService.SearchById(id);
             Console.WriteLine($"Id: {searchObject.CodCliente}, Nome: {searchObject.Nome}");
         }
 
         public void ValidateDeleteCliente()
         {
             int id = 99;
-            _clienteRepository.Delete(id);
+            _clienteService.Delete(id);
 
-            Cliente cliente = _clienteRepository.SearchById(id);
+            Cliente cliente = _clienteService.SearchById(id);
         }
     }
 }

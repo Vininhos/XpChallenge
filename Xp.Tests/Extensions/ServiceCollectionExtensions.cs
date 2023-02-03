@@ -1,6 +1,8 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Xp.Infra.Contexts;
 using Xp.Infra.Repositories;
+using Xp.Services.Service;
 
 namespace Xp.Tests.Extensions
 {
@@ -23,7 +25,7 @@ namespace Xp.Tests.Extensions
             services.AddScoped<IClienteRepository, ClienteRepository>();
 
             //Tests
-            services.AddScoped<DomainTests>();
+            services.AddScoped<IRepositoryTest, RepositoryTest>();
         }
 
         private static IConfiguration GetConfiguration()

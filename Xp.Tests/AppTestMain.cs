@@ -2,9 +2,9 @@
 {
     public class AppTestMain
     {
-        private readonly RepositoryTest _repositoryTest;
+        private readonly IRepositoryTest _repositoryTest;
 
-        public AppTestMain(RepositoryTest repositoryTest)
+        public AppTestMain(IRepositoryTest repositoryTest)
         {
             _repositoryTest = repositoryTest;
         }
