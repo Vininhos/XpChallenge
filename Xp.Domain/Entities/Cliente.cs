@@ -16,6 +16,7 @@ namespace Xp.Domain.Entities
             return new ClienteDto
             {
                 CodCliente = CodCliente,
+                Nome = Nome,
                 CodAtivo = CodAtivo,
                 qtAtivo = qtAtivo
             };

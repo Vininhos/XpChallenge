@@ -42,7 +42,7 @@ namespace Xp.Tests
                 qtAtivo = 105
             };
 
-            string message = $"\nCodCliente: {clienteDTO.CodCliente}\nNome do cliente: {clienteDTO.Nome}\nQuantidade de ativo: {clienteDTO.qtAtivo}";
+            string message = $"CodCliente: {clienteDTO.CodCliente}\nNome do cliente: {clienteDTO.Nome}\nQuantidade de ativo: {clienteDTO.qtAtivo}";
             Console.Write(message);
         }
 
