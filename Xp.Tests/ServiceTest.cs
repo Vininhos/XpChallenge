@@ -39,14 +39,14 @@ namespace Xp.Tests
             List<Cliente> clientes = _clienteService.GetAll();
 
             foreach (Cliente cliente in clientes)
-                Console.WriteLine($"Id: {cliente.CodCliente}, Nome: {cliente.Nome}");
+                Console.WriteLine($"\nId: {cliente.CodCliente}, Nome: {cliente.Nome}");
         }
 
         public void ValidateSearchByIdCliente()
         {
             int id = 1;
             Cliente cliente = _clienteService.SearchById(id);
-            Console.WriteLine($"Id: {cliente.CodCliente}, Nome: {cliente.Nome}");
+            Console.WriteLine($"\nId: {cliente.CodCliente}, Nome: {cliente.Nome}");
         }
 
         public void ValidateRegistrationCliente()
@@ -66,7 +66,7 @@ namespace Xp.Tests
             _clienteService.Save(cliente);
 
             Cliente searchObject = _clienteService.SearchById(id);
-            Console.WriteLine($"Id: {searchObject.CodCliente}, Nome: {searchObject.Nome}");
+            Console.WriteLine($"\nId: {searchObject.CodCliente}, Nome: {searchObject.Nome}");
         }
 
         public void ValidateUpdateCliente()
@@ -77,7 +77,7 @@ namespace Xp.Tests
             _clienteService.Update(cliente);
 
             Cliente searchObject = _clienteService.SearchById(id);
-            Console.WriteLine($"Id: {searchObject.CodCliente}, Nome: {searchObject.Nome}");
+            Console.WriteLine($"\nId: {searchObject.CodCliente}, Nome: {searchObject.Nome}");
         }
 
         public void ValidateDeleteCliente()

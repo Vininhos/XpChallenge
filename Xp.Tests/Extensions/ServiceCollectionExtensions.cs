@@ -24,8 +24,12 @@ namespace Xp.Tests.Extensions
             //Repository
             services.AddScoped<IClienteRepository, ClienteRepository>();
 
+            //Services
+            services.AddScoped<ClienteService>();    
+
             //Tests
-            services.AddScoped<IRepositoryTest, RepositoryTest>();
+            services.AddScoped<RepositoryTest>();
+            services.AddScoped<ServiceTest>();
         }
 
         private static IConfiguration GetConfiguration()

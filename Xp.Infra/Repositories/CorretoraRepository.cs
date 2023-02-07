@@ -14,7 +14,7 @@ namespace Xp.Infra.Repositories
 
         public CorretoraRepository(IContextCorretora context)
         {
-            _context = new FakeContextCorretora();
+            _context = context;
         }
 
         public void Delete(int id)

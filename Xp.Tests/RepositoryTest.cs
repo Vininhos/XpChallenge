@@ -83,8 +83,6 @@ namespace Xp.Tests
         {
             int id = 99;
             _clienteRepository.Delete(id);
-
-            Cliente cliente = _clienteRepository.SearchById(id);
         }
     }
 }

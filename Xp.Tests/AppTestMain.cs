@@ -2,11 +2,13 @@
 {
     public class AppTestMain
     {
-        private readonly IRepositoryTest _repositoryTest;
+        private readonly RepositoryTest _repositoryTest;
+        private readonly ServiceTest _serviceTest;
 
-        public AppTestMain(IRepositoryTest repositoryTest)
+        public AppTestMain(RepositoryTest repositoryTest, ServiceTest serviceTest)
         {
             _repositoryTest = repositoryTest;
+            _serviceTest = serviceTest;
         }
 
         public void Execute()
@@ -14,6 +16,7 @@
             ValidateStructureLayer_Context();
             ValidateDomainLayer();
             ValidateRepositoryLayer();
+            ValidateServiceLayer();
         }
         private void ValidateStructureLayer_Context()
         {
@@ -30,6 +33,11 @@
         private void ValidateRepositoryLayer()
         {
             _repositoryTest.Execute();
+        }
+
+        private void ValidateServiceLayer()
+        {
+            _serviceTest.Execute();
         }
     }
 }

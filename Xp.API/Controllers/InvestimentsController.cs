@@ -18,7 +18,7 @@ namespace Xp.API.Controllers
         }
 
         // GET: api/<InvestimentsController>
-        [HttpGet]
+        [HttpGet("{codCliente}")]
         public string Comprar(int codCliente, int codAtivo, int qtdeAtivo)
         {
             Corretora corretora = _corretoraService.SearchById(1);
