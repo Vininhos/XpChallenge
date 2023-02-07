@@ -1,7 +1,7 @@
 ﻿using Xp.Domain.Entities;
 using Xp.Infra.Contexts;
 
-namespace Xp.Tests
+namespace Xp.Tests.Contexts
 {
     public class FakeContextTests
     {
@@ -53,7 +53,7 @@ namespace Xp.Tests
             HttpClient client = new HttpClient();
             HttpResponseMessage response = await client.GetAsync("https://randomuser.me/api");
 
-            if(response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 string result = response.Content.ReadAsStringAsync().Result;
             }

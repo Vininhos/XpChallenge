@@ -1,4 +1,9 @@
-﻿namespace Xp.Tests
+﻿using Xp.Tests.Contexts;
+using Xp.Tests.Domain;
+using Xp.Tests.Repositories;
+using Xp.Tests.Services;
+
+namespace Xp.Tests.Main
 {
     public class AppTestMain
     {

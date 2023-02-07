@@ -3,6 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Xp.Infra.Contexts;
 using Xp.Infra.Repositories;
 using Xp.Services.Service;
+using Xp.Tests.Main;
+using Xp.Tests.Repositories;
+using Xp.Tests.Services;
 
 namespace Xp.Tests.Extensions
 {

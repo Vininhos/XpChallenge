@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Xp.Domain.Dtos;
 using Xp.Domain.Entities;
 
-namespace Xp.Tests
+namespace Xp.Tests.Domain
 {
     public class DomainTests
     {

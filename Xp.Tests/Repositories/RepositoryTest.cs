@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Xp.Domain.Entities;
 using Xp.Infra.Repositories;
 
-namespace Xp.Tests
+namespace Xp.Tests.Repositories
 {
-    public class RepositoryTest : IRepositoryTest
+    public class RepositoryTest
     {
         private readonly IClienteRepository _clienteRepository;
 

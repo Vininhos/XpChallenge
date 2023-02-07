@@ -7,7 +7,7 @@ using Xp.Domain.Entities;
 using Xp.Infra.Repositories;
 using Xp.Services.Service;
 
-namespace Xp.Tests
+namespace Xp.Tests.Services
 {
     public class ServiceTest
     {

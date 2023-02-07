@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Xp.Tests;
 using Xp.Tests.Extensions;
+using Xp.Tests.Main;
 
 public class Program
 {
