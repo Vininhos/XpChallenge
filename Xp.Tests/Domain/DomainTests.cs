@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xp.Domain.Dtos;
 using Xp.Domain.Entities;
+using Xp.Tests.Helpers;
 
 namespace Xp.Tests.Domain
 {
@@ -21,13 +22,7 @@ namespace Xp.Tests.Domain
 
         private void TestEntity()
         {
-            Cliente cliente = new Cliente
-            {
-                CodCliente = 1,
-                Nome = "Vinícius",
-                Cpf = "07036305983",
-                qtAtivo = 105
-            };
+            Cliente cliente = ClienteFactory.GetCliente();
 
             string message = $"CodCliente: {cliente.CodCliente}\nNome do cliente: {cliente.Nome}\nCPF do cliente: {cliente.Cpf}\nQuantidade de ativo: {cliente.qtAtivo}";
             Console.Write(message);
@@ -35,12 +30,7 @@ namespace Xp.Tests.Domain
 
         private void TestDto()
         {
-            ClienteDto clienteDTO = new ClienteDto
-            {
-                CodCliente = 1,
-                Nome = "Vinícius",
-                qtAtivo = 105
-            };
+            ClienteDto clienteDTO = ClienteDtoFactory.GetClienteDto();
 
             string message = $"CodCliente: {clienteDTO.CodCliente}\nNome do cliente: {clienteDTO.Nome}\nQuantidade de ativo: {clienteDTO.qtAtivo}";
             Console.Write(message);
@@ -48,28 +38,15 @@ namespace Xp.Tests.Domain
 
         private void TestConvertionEntityToDto()
         {
-            Cliente cliente = new Cliente
-            {
-                CodCliente = 1,
-                Nome = "Vinícius",
-                Cpf = "07036305983",
-                qtAtivo = 105
-            };
+            ClienteDto clienteDTO = ClienteDtoFactory.GetClienteDto();
 
-            ClienteDto dto = cliente.ConvertToDto();
-
-            string message = $"CodCliente: {dto.CodCliente}\nNome do cliente: {dto.Nome}\nCPF do cliente: {dto.Cpf}\nQuantidade de ativo: {dto.qtAtivo}";
+            string message = $"CodCliente: {clienteDTO.CodCliente}\nNome do cliente: {clienteDTO.Nome}\nCPF do cliente: {clienteDTO.Cpf}\nQuantidade de ativo: {clienteDTO.qtAtivo}";
             Console.Write(message);
         }
 
         private void TestConvertionDtoToEntity()
         {
-            ClienteDto clienteDTO = new ClienteDto
-            {
-                CodCliente = 1,
-                Nome = "Vinícius",
-                qtAtivo = 105
-            };
+            ClienteDto clienteDTO = ClienteDtoFactory.GetClienteDto();
 
             Cliente cliente = clienteDTO.ConvertToEntity();
 

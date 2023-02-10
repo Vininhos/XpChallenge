@@ -1,5 +1,6 @@
 ﻿using Xp.Domain.Entities;
 using Xp.Infra.Contexts;
+using Xp.Tests.Helpers;
 
 namespace Xp.Tests.Contexts
 {
@@ -35,15 +36,7 @@ namespace Xp.Tests.Contexts
 
         private void TestInclusion()
         {
-            Cliente cliente = new Cliente
-            {
-                CodCliente = 4,
-                Nome = "Douglas F.",
-                Idade = 27,
-                Cpf = "98435348921",
-                CodAtivo = 4,
-                qtAtivo = 12105
-            };
+            Cliente cliente = ClienteFactory.GetNewCliente();
 
             _contextCliente.CreateCliente(cliente);
         }
