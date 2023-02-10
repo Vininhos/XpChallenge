@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Xp.Domain.Entities;
 using Xp.Infra.Repositories;
 using Xp.Services.Service;
+using Xp.Tests.Helpers;
 
 namespace Xp.Tests.Services
 {
@@ -51,17 +52,9 @@ namespace Xp.Tests.Services
 
         public void ValidateRegistrationCliente()
         {
-            int id = 85;
+            Cliente cliente = ClienteFactory.GetNewCliente();
 
-            Cliente cliente = new Cliente
-            {
-                CodCliente = id,
-                Nome = "Benjamin D.",
-                CodAtivo = 99,
-                Cpf = "19283918284",
-                Idade = 35,
-                qtAtivo = 32944
-            };
+            int id = cliente.CodCliente;
 
             _clienteService.Save(cliente);
 

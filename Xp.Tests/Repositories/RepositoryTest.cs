@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xp.Domain.Entities;
 using Xp.Infra.Repositories;
+using Xp.Tests.Helpers;
 
 namespace Xp.Tests.Repositories
 {
@@ -50,17 +51,9 @@ namespace Xp.Tests.Repositories
 
         public void ValidateRegistrationCliente()
         {
-            int id = 85;
+            Cliente cliente = ClienteFactory.GetNewCliente();
 
-            Cliente cliente = new Cliente
-            {
-                CodCliente = id,
-                Nome = "Benjamin D.",
-                CodAtivo = 99,
-                Cpf = "19283918284",
-                Idade = 35,
-                qtAtivo = 32944
-            };
+            int id = cliente.CodCliente;
 
             _clienteRepository.Save(cliente);
 
