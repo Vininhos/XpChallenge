@@ -23,7 +23,7 @@ namespace Xp.API.Controllers
         }
 
         [HttpGet]
-        public List<ClienteDto> GetIsRunning()
+        public List<ClienteDto> Get()
         {
             try
             {
@@ -36,6 +36,39 @@ namespace Xp.API.Controllers
                 Console.WriteLine(ex);
             }
             return null;
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public ClienteDto Get(int id)
+        {
+            try
+            {
+                Cliente cliente = _clienteService.SearchById(id);
+                ClienteDto dto = cliente != null ? cliente.ConvertToDto() : null;
+
+                return dto;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [HttpPost]
+        public string Post([Bind("nome, idade, cpf, codativo, qtativo")]ClienteDto clienteDto)
+        {
+            try
+            {
+                Cliente cliente = clienteDto.ConvertToEntity();
+                _clienteService.Save(cliente);
+
+                return $"Cliente {cliente.Nome} successfully added. His ID is: {cliente.CodCliente}";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

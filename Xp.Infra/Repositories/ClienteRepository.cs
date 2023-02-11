@@ -22,6 +22,7 @@ namespace Xp.Infra.Repositories
 
         public void Save(Cliente cliente)
         {
+            cliente.CodCliente = _context.NextId();
             _context.CreateCliente(cliente);
         }
 

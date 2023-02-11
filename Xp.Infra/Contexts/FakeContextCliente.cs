@@ -89,5 +89,11 @@ namespace Xp.Infra.Contexts
 
             _clientes.Add(objSearch);
         }
+
+        public int NextId()
+        {
+            int id = _clientes.Max(c => c.CodCliente); 
+            return ++id;
+        }
     }
 }

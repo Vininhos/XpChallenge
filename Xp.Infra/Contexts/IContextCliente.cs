@@ -13,5 +13,7 @@ namespace Xp.Infra.Contexts
         public void UpdateCliente(Cliente cliente);
 
         public void DeleteCliente(int id);
+
+        public int NextId();
     }
 }

@@ -21,6 +21,9 @@ namespace Xp.Domain.Dtos
             return new Cliente
             {
                 CodCliente = CodCliente,
+                Nome = Nome,
+                Idade = Idade,
+                Cpf = Cpf,
                 CodAtivo = CodAtivo,
                 qtAtivo = qtAtivo
             };
