@@ -17,12 +17,6 @@ namespace Xp.API.Controllers
     {
         ClienteService _clienteService;
 
-        JsonSerializerOptions options = new JsonSerializerOptions
-        {
-            Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
-            WriteIndented = true
-        };
-
         public ClienteController(ClienteService clienteService)
         {
             _clienteService = clienteService;
@@ -36,8 +30,8 @@ namespace Xp.API.Controllers
                 List<Cliente> clientes = _clienteService.GetAll();
                 List<ClienteDto> clientesDto = clientes != null ? Cliente.ConvertToDto(clientes) : null;
                 return clientesDto;
-                //return JsonSerializer.Serialize(clientesDto, options);
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex);
             }
