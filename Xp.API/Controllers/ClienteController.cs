@@ -56,14 +56,45 @@ namespace Xp.API.Controllers
         }
 
         [HttpPost]
-        public string Post([Bind("nome, idade, cpf, codativo, qtativo")]ClienteDto clienteDto)
+        public string Post([Bind("nome, idade, cpf, codativo, qtativo")] ClienteDto clienteDto)
         {
             try
             {
                 Cliente cliente = clienteDto.ConvertToEntity();
                 _clienteService.Save(cliente);
 
-                return $"Cliente {cliente.Nome} successfully added. His ID is: {cliente.CodCliente}";
+                return $"Cliente {cliente.Nome} successfully added. His ID is: {cliente.CodCliente}.";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [HttpPut]
+        public string Put([FromBody] ClienteDto clienteDto)
+        {
+            try
+            {
+                Cliente cliente = clienteDto.ConvertToEntity();
+                _clienteService.Update(cliente);
+
+                return $"Cliente {cliente.Nome} successfully updated. His ID is: {cliente.CodCliente}.";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public string Delete(int id)
+        {
+            try
+            {
+                _clienteService.Delete(id);
+                return $"Cliente ID {id} successfully removed.";
             }
             catch (Exception ex)
             {
