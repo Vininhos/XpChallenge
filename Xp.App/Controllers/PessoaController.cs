@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Xp.App.Models.Dtos;
 
-namespace Xp.App.Models.Dtos
+namespace Xp.App.Controllers
 {
     public class PessoaController : Controller
     {
@@ -61,5 +62,42 @@ namespace Xp.App.Models.Dtos
                 throw ex;
             }
         }
-    }
+
+        [HttpGet]
+        public IActionResult Delete(string Id)
+        {
+            PessoaDto pessoa = _pessoas.FirstOrDefault(p => p.Id.Equals(Id));
+            return View(pessoa);
+        }
+
+        [HttpPost]
+        public IActionResult DeletePost(string Id)
+        {
+            PessoaDto pessoa = _pessoas.FirstOrDefault(p => p.Id.Equals(Id));
+            if (pessoa != null)
+                _pessoas.Remove(pessoa);
+
+            return RedirectToAction("ListAll");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(string Id)
+        {
+			PessoaDto pessoa = _pessoas.FirstOrDefault(p => p.Id.Equals(Id));
+			return View();
+        }
+
+		[HttpPost]
+		public IActionResult Edit([Bind("Id, Nome, Email")]PessoaDto pessoa)
+		{
+			PessoaDto pessoaSearch = _pessoas.FirstOrDefault(p => p.Id.Equals(pessoa.Id));
+            if (pessoaSearch != null)
+            {
+                _pessoas.Remove(pessoaSearch);
+                _pessoas.Add(pessoa);
+            }
+
+			return RedirectToAction("ListAll");
+		}
+	}
 }
